@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
     int height = atoi(size_str);
 
     // Initialize image with all pixels set to 0
-    gray **image = pbm_allocarray(width, height);
+    gray **image = pgm_allocarray(width, height);
     if (image == NULL) {
         printf("Error: Failed to allocate image\n");
         return 1;
@@ -86,6 +86,6 @@ int main(int argc, char *argv[]) {
     pgm_writepgm(output, image, width, height, highestVal, 1);
     fclose(output);
 
-    pbm_freearray(image, height);
+    pgm_freearray(image, height);
     return 0;
 }
