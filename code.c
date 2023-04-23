@@ -78,7 +78,7 @@ int main(int argc, char *argv[]) {
         printf("Error: Failed to open file: %s\n", strerror(errno));
         return 1;
     }
-    pgm_writepbm(output, image, width, height, 1);
+    pgm_writepgm(output, image, width, height,255, 1);
     fclose(output);
 
     pbm_freearray(image, height);
