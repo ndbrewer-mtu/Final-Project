@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
     int height = atoi(size_str);
 
     // Initialize image with all pixels set to 0
-    bit **image = pbm_allocarray(width, height);
+    gray **image = pbm_allocarray(width, height);
     if (image == NULL) {
         printf("Error: Failed to allocate image\n");
         return 1;
@@ -78,7 +78,7 @@ int main(int argc, char *argv[]) {
         printf("Error: Failed to open file: %s\n", strerror(errno));
         return 1;
     }
-    pbm_writepbm(output, image, width, height, 0);
+    pgm_writepbm(output, image, width, height, 1);
     fclose(output);
 
     pbm_freearray(image, height);
