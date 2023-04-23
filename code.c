@@ -35,6 +35,8 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    int highestVal = 0;
+
     // Parse and apply command line arguments
     for (int i = 2; i < argc; i++) {
         char *arg = argv[i];
@@ -55,6 +57,9 @@ int main(int argc, char *argv[]) {
                 return 1;
             }
             image[row][col] = value;
+            if(value > highestVal){
+                highestVal = value;
+            }
         } else {
             // Fill entire image with value
             int value = atoi(arg);
@@ -78,7 +83,7 @@ int main(int argc, char *argv[]) {
         printf("Error: Failed to open file: %s\n", strerror(errno));
         return 1;
     }
-    pgm_writepgm(output, image, width, height,255, 1);
+    pgm_writepgm(output, image, width, height, highestVal, 1);
     fclose(output);
 
     pbm_freearray(image, height);
