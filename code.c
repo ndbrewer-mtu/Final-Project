@@ -3,7 +3,6 @@
 #include <string.h>
 #include <ctype.h>
 #include <errno.h>
-#include <netpbm/pbm.h>
 #include <netpbm/pgm.h>
 
 #define MAX_PIXEL_VALUE 255
